@@ -76,3 +76,6 @@ setnames(run.data, colnames(run.data), gsub("BodyBody", "Body", colnames(run.dat
 run.data.summary <- run.data %>%
   group_by(subject_id, activity_labels) %>%
   summarise_each(funs(mean))
+
+# Write run.data to file
+write.table(run.data.summary, file="run_data_summary.txt", row.name=FALSE)
